@@ -1,0 +1,28 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <h1>Have a set of games that needs to be added?</h1>
+    <p>Add your games to our database!</p>
+    <div class="container text-left">
+
+        <div class="row row-cols-2">
+            <form method="POST">
+                {{ form.hidden_tag }}
+            <div class="col">{{ form.name.label }} {{ form.name }}</div>
+                <br>
+            <div class="col">{{ form.date.label }} {{ form.date }}</div>
+                <br>
+            <div class="col">{{ form.game_1.label }} {{ form.game_1 (class='form-control', value=0) }}</div>
+                <br>
+            <div class="col">{{ form.game_2.label }} {{ form.game_2 (class='form-control', value=0) }}</div>
+                <br>
+            <div class="col">{{ form.game_3.label }} {{ form.game_3 (class='form-control', value=0) }}</div>
+                <br>
+                  {{ form.submit }}
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}

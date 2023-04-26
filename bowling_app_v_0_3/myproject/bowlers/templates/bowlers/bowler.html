@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>This is the bowling page for {{ name|capitalize }}</h1>
+
+    <h2>{{ name|capitalize }}'s game averages:</h2>
+       <ul>
+            <li>Game 1: {{ game_1_avg }}</li>
+                <ul>
+                    <li>Game 1 max: {{ game_1_max }}</li>
+                </ul>
+            <li>Game 2: {{ game_2_avg }}</li>
+                <ul>
+                    <li>Game 2 max: {{ game_2_max }}</li>
+                </ul>
+            <li>Game 3: {{ game_3_avg }}</li>
+                <ul>
+                    <li>Game 3 max: {{ game_3_max }}</li>
+                </ul>
+            <li>Overall average: {{ game_avg }}</li>
+        </ul>
+
+    <div id='chart1' class='chart'></div>
+
+    <div id='chart2' class='chart'></div>
+
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+    <script type='text/javascript'>
+    var graphs = {{graph_json1 | safe}};
+    Plotly.plot('chart1',graphs,{});
+    </script>
+
+    <script type='text/javascript'>
+    var graphs = {{graph_json2 | safe}};
+    Plotly.plot('chart2',graphs,{});
+    </script>
+
+{% endblock %}

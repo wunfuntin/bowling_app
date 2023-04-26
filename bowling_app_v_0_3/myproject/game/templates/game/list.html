@@ -1,0 +1,11 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+    <h1>Here is a list of all available games: </h1>
+        <ul class="list-group">
+            {% for game in games %}
+                <li class="list-group-item"><a href="{{ url_for('game.update', id=game.id) }}">{{ game.id }} </a> {{ game }}</li>
+            {% endfor %}
+        </ul>
+
+{% endblock %}
